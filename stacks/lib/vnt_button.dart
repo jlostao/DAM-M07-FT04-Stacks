@@ -58,7 +58,6 @@ class VNTButtonState extends State<VNTButton> with WidgetsBindingObserver {
         });
         break;
       case AppLifecycleState.hidden:
-      // TODO: Handle this case.
     }
   }
 

@@ -1,58 +1,5 @@
 import 'package:flutter/material.dart';
 
-/*
-  Exemple de com usar 'WidgetPopover'
-
-  Primer cal crear una key amb les variables de la classe '...state'
-
-  GlobalKey _settingsButtonKey = GlobalKey();
-
-  Cal posar aquesta key al botó que obrirà el Popover:
-
-  IconButton( 
-    key: _settingsButtonKey, 
-    icon: Icon(Icons.settings), 
-    onPressed: () { ...
-
-  Després es pot fer servir el widget:
-
-  CupertinoButton(
-    key: _settingsButtonKey,
-    padding: const EdgeInsets.all(0.0),
-    onPressed: () {
-      WidgetPopover.showPopover(
-          context: context,
-          key: _settingsButtonKey,
-          child: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Column(
-              children: [
-                GestureDetector(
-                  onTap: () {
-                    print("Opció 1 premuda");
-                    WidgetPopover.hidePopover();
-                  },
-                  child: Text('Opció 1'),
-                ),
-                GestureDetector(
-                  onTap: () {
-                    print("Opció 2 premuda");
-                    WidgetPopover.hidePopover();
-                  },
-                  child: Text('Opció 2'),
-                ),
-              ],
-            ),
-          ));
-    },
-    child: const Icon(
-      CupertinoIcons.settings,
-      color: CupertinoColors.black,
-      size: 24.0,
-      semanticLabel: 'Text to announce in accessibility modes',
-    ),
-  )
-*/
 
 class WidgetPopover extends StatefulWidget {
   final Offset anchor;
@@ -153,7 +100,6 @@ class WidgetPopoverState extends State<WidgetPopover> {
         topPosition = screenPadding;
       }
     } else {
-      // Momentàniament, posiciona fora de la pantalla per determinar la mida
       leftPosition = -10000000;
       topPosition = -10000000;
     }
@@ -198,10 +144,10 @@ class WidgetPopoverState extends State<WidgetPopover> {
           left: widget.anchor.dx + 10,
           top: isSizeDetermined
               ? widget.anchor.dy - 10
-              : -1000000, // Ajusta -10 segons la mida del triangle
+              : -1000000, 
           child: CustomPaint(
             size: Size(20,
-                10), // Aquesta mida determina l'amplada i l'altura del triangle
+                10), 
             painter: TrianglePainter(triangleColor: Colors.white),
           ),
         ),
